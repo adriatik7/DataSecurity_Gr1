@@ -10,3 +10,10 @@ def decode_morse_code(encoded_text):
     encoded_text = encoded_text.split(' ')
     decoded_text = []
     for char in encoded_text:
+        if char == '/':
+            decoded_text.append(' ')
+        else:
+            for key, value in morse_code_dict.items():
+                if char == value:
+                    decoded_text.append(key)
+    return ''.join(decoded_text)
