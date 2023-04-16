@@ -40,3 +40,25 @@ def play_morse_code(encoded_text):
         else:
             continue
         time.sleep(char_space_duration / 1000)
+
+def main():
+    print('Morse Code Encoder/Decoder')
+    while True:
+        choice = input('Enter "1" to encode, "2" to decode, or "0" to quit: ')
+        if choice == '0':
+            print('Goodbye!')
+            break
+        elif choice == '1':
+            text = input('Enter text to encode: ')
+            encoded_text = encode_morse_code(text)
+            print('Encoded text:', encoded_text)
+            play_morse_code(encoded_text)
+        elif choice == '2':
+            encoded_text = input('Enter Morse code to decode: ')
+            decoded_text = decode_morse_code(encoded_text)
+            print('Decoded text:', decoded_text)
+        else:
+            print('Invalid choice, please try again.')
+
+if __name__ == '__main__':
+    main()
