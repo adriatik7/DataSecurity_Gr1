@@ -17,3 +17,19 @@ def decode_morse_code(encoded_text):
                 if char == value:
                     decoded_text.append(key)
     return ''.join(decoded_text)
+
+def play_morse_code(encoded_text):
+    dot_duration = 100  # milliseconds
+    dash_duration = dot_duration * 3
+    space_duration = dot_duration
+    char_space_duration = dot_duration * 3
+    for char in encoded_text:
+        if char == '.':
+            winsound.Beep(440, dot_duration)
+        elif char == '-':
+            winsound.Beep(440, dash_duration)
+        elif char == '/':
+            winsound.Beep(37, space_duration)
+        else:
+            continue
+        time.sleep(char_space_duration / 1000)
